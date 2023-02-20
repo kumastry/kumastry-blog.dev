@@ -1,7 +1,15 @@
 import Link from "next/link";
 import { client } from "../libs/client";
+import { NextPage } from "next";
+import type { GetStaticProps } from 'next'
+import { ScriptProps  } from "next/script";
+import type { Blog } from "@/libs/types";
 
-export default function Home({blog} :any) {
+type Props = {
+  blog: Array<Blog>
+}
+
+export default function Home({blog} : Props ) {
   console.log(blog);
   return (
     <div>
@@ -17,12 +25,12 @@ export default function Home({blog} :any) {
 }
 
 // データをテンプレートに受け渡す部分の処理を記述します
-export const getStaticProps = async () => {
+export const getStaticProps:GetStaticProps = async () => {
   const data = await client.get({ endpoint: "blogs" });
-
+  const blog : Blog = data.contents; 
   return {
     props: {
-      blog: data.contents,
+      blog,
     },
   };
 };
