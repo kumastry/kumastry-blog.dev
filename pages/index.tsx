@@ -10,13 +10,13 @@ type Props = {
 }
 
 export default function Home({blog} : Props ) {
-  console.log(blog);
+  //console.log(blog);
   return (
     <div>
       <ul>
         {blog.map((blog :any) => (
           <li key={blog.id}>
-            <Link href={`/blog/${blog.id}`}>{blog.title}</Link>
+            <Link href={`/blogs/${blog.id}`}>{blog.title}</Link>
           </li>
         ))}
       </ul>
@@ -27,7 +27,8 @@ export default function Home({blog} : Props ) {
 // データをテンプレートに受け渡す部分の処理を記述します
 export const getStaticProps:GetStaticProps = async () => {
   const data = await client.get({ endpoint: "blogs" });
-  const blog : Blog = data.contents; 
+  const blog : Array<Blog> = data.contents; 
+ 
   return {
     props: {
       blog,

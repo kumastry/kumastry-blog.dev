@@ -18,7 +18,7 @@ export type Blog = {
     category: Category | null,
     content: string | null,
     createdAt:string,
-    id: string | null,
+    id: string,
     publishedAt: string,
     revisedAt : string,
     title : string | null,
