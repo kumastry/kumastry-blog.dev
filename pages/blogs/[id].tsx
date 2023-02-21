@@ -32,12 +32,15 @@ export const getStaticPaths:GetStaticPaths = async () => {
   
   export default function Blog({ data } : any) {
     console.log(data);
-    // Render post...
-    return (<>
+   
+    return (
+    <main>
+      <h1>{data.title}</h1>
+      <p>{data.publishedAt}</p>
           <div
         dangerouslySetInnerHTML={{
           __html: `${data.content}`,
         }}
       />
-    </>);
+    </main>);
   }
