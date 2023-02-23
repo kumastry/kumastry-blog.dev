@@ -8,7 +8,7 @@ const Layout = ({children}:{ children: ReactNode }) : JSX.Element => {
         
         <div>
             <Header />
-                <div style={{margin:"30px"}}> {children}</div>
+                <div style={{margin:"4rem 5rem"}}> {children}</div>
             <Footer />
         </div>
     );

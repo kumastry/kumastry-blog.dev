@@ -8,10 +8,10 @@ import Typography  from "@mui/material/Typography";
 
 const Footer = () : JSX.Element => {
     return (
-        <Box sx={{ width: "100%", position: 'fixed', bottom: 0}} >
+        <Box sx={{ width: "100%", position: '', bottom: 0}} >
              <BottomNavigation >
                 <Typography >
-                   フッター
+                   copyright©2023.kumastry
                 </Typography>
             </BottomNavigation>
         </Box>

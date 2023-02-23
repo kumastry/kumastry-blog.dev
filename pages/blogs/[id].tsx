@@ -35,7 +35,7 @@ export const getStaticPaths:GetStaticPaths = async () => {
    
     return (
     <main>
-      <h1>{data.title}</h1>
+      <h1 className = "title">{data.title}</h1>
       <p>{data.publishedAt}</p>
           <div
         dangerouslySetInnerHTML={{

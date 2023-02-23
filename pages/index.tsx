@@ -4,6 +4,7 @@ import { NextPage } from "next";
 import type { GetStaticProps } from 'next'
 import { ScriptProps  } from "next/script";
 import type { Blog } from "@/libs/types";
+import Image from "next/image";
 
 type Props = {
   blog: Array<Blog>
@@ -17,6 +18,12 @@ export default function Home({blog} : Props ) {
         {blog.map((blog :any) => (
           <li key={blog.id}>
             <Link href={`/blogs/${blog.id}`}>{blog.title}</Link>
+            <Image 
+            src = {blog.eyecatch.url}
+            height = {200}
+            width = {200}
+            alt = {blog.title}
+            />
           </li>
         ))}
       </ul>
