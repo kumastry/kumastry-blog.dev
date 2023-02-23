@@ -1,7 +1,7 @@
 import React from "react";
 import type { ReactNode } from 'react';
 import Header from "./Header";
-//import Footer from "./Footer";
+import Footer from "./Footer";
 
 const Layout = ({children}:{ children: ReactNode }) : JSX.Element => {
     return (
@@ -9,6 +9,7 @@ const Layout = ({children}:{ children: ReactNode }) : JSX.Element => {
         <div>
             <Header />
                 <div style={{margin:"30px"}}> {children}</div>
+            <Footer />
         </div>
     );
 
