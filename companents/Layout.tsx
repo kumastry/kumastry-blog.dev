@@ -6,8 +6,9 @@ import Header from "./Header";
 const Layout = ({children}:{ children: ReactNode }) : JSX.Element => {
     return (
         
-        <div style={{margin:"30px"}}>
-            {children}
+        <div>
+            <Header />
+                <div style={{margin:"30px"}}> {children}</div>
         </div>
     );
 
