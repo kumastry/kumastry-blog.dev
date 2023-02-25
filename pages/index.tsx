@@ -5,6 +5,7 @@ import type { GetStaticProps } from "next";
 import { ScriptProps } from "next/script";
 import type { Blog } from "@/libs/types";
 import Image from "next/image";
+import Head from "next/head";
 
 //import mui
 import Card from "@mui/material/Card";
@@ -12,6 +13,7 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
+import Grid from '@mui/material/Grid';
 
 type Props = {
   blog: Array<Blog>;
@@ -21,9 +23,27 @@ export default function Home({ blog }: Props) {
   //console.log(blog);
   return (
     <> 
+    
+    <Head>
+        <title>kumastry.dev</title>
+        <meta name="description" content="kumastryのブログ" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+        <meta charSet="utf-8" />
+        <meta property="og:title" content="kumastry.dev" />
+        <meta property="og:site_name" content="kumastry.dev" />
+        <meta property="og:description" content="kumastryのブログ" />
+        <meta property="og:url" content="%PUBLIC_URL%" />
+        <meta property="og:type" content="website" />
+        {/*<meta property="og:image" content="%PUBLIC_URL%/images/ogp.png" /> */}
+        <meta name="twitter:card" content="summary_large_image" />
+    </Head>
+
+    <Grid container rowSpacing={1}>
         {blog.map((blog: any) => (    
+          <Grid item sx ={{ margin: "auto"}}>
            <Link href={`/blogs/${blog.id}`}>
-            <Card sx={{ maxWidth: 345 }}>
+            <Card sx={{ minWidth:200 }}>
              
               <CardActionArea>
                   <CardMedia
@@ -42,7 +62,9 @@ export default function Home({ blog }: Props) {
              
             </Card>
             </Link>
+            </Grid>
         ))}
+        </Grid>
     </>
   );
 }
