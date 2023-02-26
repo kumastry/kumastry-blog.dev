@@ -7,8 +7,8 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
 import Container from "@mui/material/Container";
-import Box from '@mui/material/Box';
-import Botton from '@mui/material/Button';
+import Box from "@mui/material/Box";
+import Botton from "@mui/material/Button";
 
 const Header = (): JSX.Element => {
   return (
@@ -19,16 +19,15 @@ const Header = (): JSX.Element => {
             kumastry.dev
           </Typography>
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            
-              
-              <Botton sx={{ my: 3, color: 'black', display: 'block' }}>Blog</Botton >
+          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+            <Botton sx={{ my: 3, color: "black", display: "block" }}>
+              Blog
+            </Botton>
 
-              <Botton sx={{ my: 2, color: 'black', display: 'block' }}>About me</Botton >
-              
-            
+            <Botton sx={{ my: 2, color: "black", display: "block" }}>
+              About me
+            </Botton>
           </Box>
-
         </Toolbar>
       </Container>
     </AppBar>

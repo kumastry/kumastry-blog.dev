@@ -14,6 +14,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import Grid from '@mui/material/Grid';
+import { useMediaQuery } from "@mui/material";
 
 type Props = {
   blog: Array<Blog>;
@@ -21,6 +22,8 @@ type Props = {
 
 export default function Home({ blog }: Props) {
   //console.log(blog);
+  //const isPhone : boolean = useMediaQuery("(max-width:600px)");
+  
   return (
     <> 
     
@@ -40,30 +43,32 @@ export default function Home({ blog }: Props) {
     </Head>
 
     <Grid container rowSpacing={1}>
-        {blog.map((blog: any) => (    
-          <Grid item sx ={{ margin: "auto"}}>
-           <Link href={`/blogs/${blog.id}`}>
-            <Card sx={{ minWidth:200 }}>
-             
-              <CardActionArea>
-                  <CardMedia
-                    component="img"
-                    height="140"
-                    image={blog.eyecatch.url}
-                    alt="blog eyecatch"
-                  />
-                  <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
-                      {blog.title}
-                    </Typography>
-                  </CardContent>
+        {blog.map((blog: any) => {
+          
+          return (<Grid item sx ={{ margin: "auto",}}>
+          <Link href={`/blogs/${blog.id}`}>
+           <Card sx={{ width: "20rem","@media screen and (max-width:600px)": {
+        width: "250px"}
+        }}>
+             <CardActionArea>
+                 <CardMedia
+                   component="img"
+                   height="150"
+                   image={blog.eyecatch.url}
+                   alt="blog eyecatch"
+                 />
+                 <CardContent>
+                   <Typography gutterBottom variant="h5" component="div">
+                     {blog.title}
+                   </Typography>
+                 </CardContent>
+           
+             </CardActionArea>
             
-              </CardActionArea>
-             
-            </Card>
-            </Link>
-            </Grid>
-        ))}
+           </Card>
+           </Link>
+           </Grid>);
+        })}
         </Grid>
     </>
   );
