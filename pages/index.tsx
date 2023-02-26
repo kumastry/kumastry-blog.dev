@@ -42,12 +42,12 @@ export default function Home({ blog }: Props) {
         <meta name="twitter:card" content="summary_large_image" />
     </Head>
 
-    <Grid container rowSpacing={1}>
+    <Grid container rowSpacing={2} columnSpacing={3}>
         {blog.map((blog: any) => {
           
           return (<Grid item sx ={{ margin: "auto",}}>
           <Link href={`/blogs/${blog.id}`}>
-           <Card sx={{ width: "20rem","@media screen and (max-width:600px)": {
+           <Card sx={{ width: "22rem","@media screen and (max-width:600px)": {
         width: "250px"}
         }}>
              <CardActionArea>
