@@ -1,5 +1,6 @@
 import React from "react";
 import type { ReactNode } from "react";
+import Link from "next/link";
 
 //mui imports
 import AppBar from "@mui/material/AppBar";
@@ -21,11 +22,16 @@ const Header = (): JSX.Element => {
 
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             <Botton sx={{ my: 3, color: "black", display: "block" }}>
-              Blog
+              <Link href = "/">
+                Blog
+              </Link>
             </Botton>
 
             <Botton sx={{ my: 2, color: "black", display: "block" }}>
+            <Link href = "/about">
               About me
+              </Link>
+              
             </Botton>
           </Box>
         </Toolbar>
