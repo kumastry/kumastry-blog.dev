@@ -45,7 +45,7 @@ export default function Home({ blog }: Props) {
     <Grid container rowSpacing={2} columnSpacing={1}>
         {blog.map((blog: any) => {
           
-          return (<Grid item xs = {12} sm = {6} md = {6}  lg = {4} xl = {4} sx ={{ margin: "auto"}}>
+          return (<Grid item xs = {12} sm = {6} md = {4}  lg = {4} xl = {3} sx ={{ margin: "auto"}}>
           <Link href={`/blogs/${blog.id}`}>
            <Card>
              <CardActionArea>
