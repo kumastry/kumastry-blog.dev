@@ -29,7 +29,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 };
 
 export default function Blog({ data }: any) {
-  console.log(data);
+  //console.log(data);
 
   return (
     <main>

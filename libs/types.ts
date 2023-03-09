@@ -7,6 +7,18 @@ export type Category = {
   updatedAt: string;
 };
 
+export type About = {
+  id:string,
+  name:string,
+  history:string,
+  profile:string,
+  icon?:string,
+  createdAt: string;
+  publishedAt: string;
+  revisedAt: string;
+  updatedAt: string;
+}
+
 export type Eyecatch = {
   height: number;
   width: number;
