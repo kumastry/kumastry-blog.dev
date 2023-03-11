@@ -74,12 +74,18 @@ const Header = (): JSX.Element => {
               "aria-labelledby": "basic-button",
             }}
           >
-            <MenuItem onClick={handleClose}>
-              <Link href="/">Blog</Link>
-            </MenuItem>
-            <MenuItem onClick={handleClose}>
-              <Link href="/about">About</Link>
-            </MenuItem>
+            <Link href="/">
+              <MenuItem onClick={handleClose}>
+                Blog
+              </MenuItem>
+            </Link>
+        
+            <Link href="/about">
+              <MenuItem onClick={handleClose}>
+                About
+              </MenuItem>
+            </Link>
+            
             <MenuItem onClick={handleClose}>Policy</MenuItem>
           </Menu>
         </Toolbar>
