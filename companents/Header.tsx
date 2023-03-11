@@ -35,20 +35,26 @@ const Header = (): JSX.Element => {
             kumastry.dev
           </Typography>
 
-          <Box sx={{ flexGrow: 1 }} />
+          <Box sx={{ flexGrow: 2 }} />
 
           <Box sx={{ display: { md: "flex", sm: "flex", xs: "none" } }}>
             <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
-                <Botton sx={{ my: 2 }}>
-                  <Link href="/">Blog</Link>
-                </Botton>
+              <Grid item sm={4}>
+                <Link href="/">
+                  <Botton sx={{ my: 2 }}>Blog</Botton>
+                </Link>
               </Grid>
 
-              <Grid item xs={12} sm={6}>
-                <Botton sx={{ my: 2 }}>
-                  <Link href="/about">About</Link>
-                </Botton>
+              <Grid item sm={4}>
+                <Link href="/about">
+                  <Botton sx={{ my: 2 }}>About</Botton>
+                </Link>
+              </Grid>
+
+              <Grid item sm={4}>
+                <Link href="/policy">
+                  <Botton sx={{ my: 2 }}>policy</Botton>
+                </Link>
               </Grid>
             </Grid>
           </Box>
@@ -75,18 +81,16 @@ const Header = (): JSX.Element => {
             }}
           >
             <Link href="/">
-              <MenuItem onClick={handleClose}>
-                Blog
-              </MenuItem>
+              <MenuItem onClick={handleClose}>Blog</MenuItem>
             </Link>
-        
+
             <Link href="/about">
-              <MenuItem onClick={handleClose}>
-                About
-              </MenuItem>
+              <MenuItem onClick={handleClose}>About</MenuItem>
             </Link>
-            
-            <MenuItem onClick={handleClose}>Policy</MenuItem>
+
+            <Link href="/policy">
+              <MenuItem onClick={handleClose}>Policy</MenuItem>
+            </Link>
           </Menu>
         </Toolbar>
       </Container>

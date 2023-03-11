@@ -54,7 +54,7 @@ export default function Home({ blog }: Props) {
               sx={{ margin: "auto" }}
             >
               <Link href={`/blogs/${blog.id}`}>
-                <Card>
+                <Card sx={{ height: "20rem" }}>
                   <CardActionArea>
                     <CardMedia
                       component="img"
