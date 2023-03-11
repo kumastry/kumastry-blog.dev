@@ -15,6 +15,10 @@ import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import { useMediaQuery } from "@mui/material";
+import { Category } from '../libs/types';
+import Box from "@mui/material/Box";
+
+import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 
 type Props = {
   blog: Array<Blog>;
@@ -43,6 +47,7 @@ export default function Home({ blog }: Props) {
 
       <Grid container rowSpacing={2} columnSpacing={1}>
         {blog.map((blog: any) => {
+          console.log(blog);
           return (
             <Grid
               item
@@ -58,7 +63,7 @@ export default function Home({ blog }: Props) {
                   <CardActionArea>
                     <CardMedia
                       component="img"
-                      height="150"
+                      height="200"
                       image={blog.eyecatch.url}
                       alt="blog eyecatch"
                     />
@@ -66,6 +71,15 @@ export default function Home({ blog }: Props) {
                       <Typography gutterBottom variant="h5" component="div">
                         {blog.title}
                       </Typography>
+
+                      <Box sx = {{display:"flex"}}>
+                      <LocalOfferIcon/>
+                      
+                      <p>{blog.category.name}</p>
+                      </Box>
+
+                      <p>{blog.publishedAt}</p>
+                      
                     </CardContent>
                   </CardActionArea>
                 </Card>

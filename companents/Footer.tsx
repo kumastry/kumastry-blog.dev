@@ -10,7 +10,7 @@ const Footer = (): JSX.Element => {
   return (
     <Box sx={{ width: "100%", position: "", bottom: 0 }}>
       <BottomNavigation>
-        <Typography>copyright©2023.kumastry</Typography>
+        <Typography style={{ color: "black" }} variant="h6" component="div">copyright©2023.kumastry</Typography>
       </BottomNavigation>
     </Box>
   );
