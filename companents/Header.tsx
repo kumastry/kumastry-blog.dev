@@ -10,6 +10,7 @@ import IconButton from "@mui/material/IconButton";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import Botton from "@mui/material/Button";
+import Grid from "@mui/material/Grid";
 
 const Header = (): JSX.Element => {
   return (
@@ -20,19 +21,27 @@ const Header = (): JSX.Element => {
             kumastry.dev
           </Typography>
 
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            <Botton sx={{ my: 3, color: "black", display: "block" }}>
+          <Box sx={{ flexGrow: 1 }} />
+
+          <Box sx={{ display: { xs: "none", md: "flex" } }}>
+            <Grid container spacing={2}>
+              <Grid item xs={12} sm={6}>
+            <Botton sx={{ my: 2, color: "black", display: "block" }}>
               <Link href = "/">
                 Blog
               </Link>
             </Botton>
+            </Grid>
 
+            <Grid item xs={12} sm={6}>
             <Botton sx={{ my: 2, color: "black", display: "block" }}>
             <Link href = "/about">
-              About me
+              About
               </Link>
-              
             </Botton>
+            </Grid>
+
+            </Grid>
           </Box>
         </Toolbar>
       </Container>
