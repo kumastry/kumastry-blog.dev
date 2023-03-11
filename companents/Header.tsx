@@ -11,6 +11,7 @@ import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import Botton from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
+import MenuIcon from '@mui/icons-material/Menu';
 
 const Header = (): JSX.Element => {
   return (
@@ -23,10 +24,10 @@ const Header = (): JSX.Element => {
 
           <Box sx={{ flexGrow: 1 }} />
 
-          <Box sx={{ display: { xs: "none", md: "flex" } }}>
+          <Box sx={{ display: {md: "flex", sm :"flex", xs :"none" } }}>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
-            <Botton sx={{ my: 2, color: "black", display: "block" }}>
+            <Botton sx={{ my: 2 }}>
               <Link href = "/">
                 Blog
               </Link>
@@ -34,7 +35,7 @@ const Header = (): JSX.Element => {
             </Grid>
 
             <Grid item xs={12} sm={6}>
-            <Botton sx={{ my: 2, color: "black", display: "block" }}>
+            <Botton sx={{ my: 2 }}>
             <Link href = "/about">
               About
               </Link>
@@ -43,6 +44,11 @@ const Header = (): JSX.Element => {
 
             </Grid>
           </Box>
+
+          <Box sx={{ display: {md: "none", sm :"none" } }}>
+            <MenuIcon sx={{ my: 2, color: "black" }}/>
+          </Box>
+
         </Toolbar>
       </Container>
     </AppBar>
