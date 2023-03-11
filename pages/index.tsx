@@ -13,7 +13,7 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
-import Grid from '@mui/material/Grid';
+import Grid from "@mui/material/Grid";
 import { useMediaQuery } from "@mui/material";
 
 type Props = {
@@ -23,11 +23,10 @@ type Props = {
 export default function Home({ blog }: Props) {
   //console.log(blog);
   //const isPhone : boolean = useMediaQuery("(max-width:600px)");
-  
+
   return (
-    <> 
-    
-    <Head>
+    <>
+      <Head>
         <title>kumastry.dev</title>
         <meta name="description" content="kumastryのブログ" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -40,34 +39,41 @@ export default function Home({ blog }: Props) {
         <meta property="og:type" content="website" />
         {/*<meta property="og:image" content="%PUBLIC_URL%/images/ogp.png" /> */}
         <meta name="twitter:card" content="summary_large_image" />
-    </Head>
+      </Head>
 
-    <Grid container rowSpacing={2} columnSpacing={1}>
+      <Grid container rowSpacing={2} columnSpacing={1}>
         {blog.map((blog: any) => {
-          
-          return (<Grid item xs = {12} sm = {6} md = {4}  lg = {4} xl = {3} sx ={{ margin: "auto"}}>
-          <Link href={`/blogs/${blog.id}`}>
-           <Card>
-             <CardActionArea>
-                 <CardMedia
-                   component="img"
-                   height="150"
-                   image={blog.eyecatch.url}
-                   alt="blog eyecatch"
-                 />
-                 <CardContent>
-                   <Typography gutterBottom variant="h5" component="div">
-                     {blog.title}
-                   </Typography>
-                 </CardContent>
-           
-             </CardActionArea>
-            
-           </Card>
-           </Link>
-           </Grid>);
+          return (
+            <Grid
+              item
+              xs={12}
+              sm={6}
+              md={4}
+              lg={4}
+              xl={3}
+              sx={{ margin: "auto" }}
+            >
+              <Link href={`/blogs/${blog.id}`}>
+                <Card>
+                  <CardActionArea>
+                    <CardMedia
+                      component="img"
+                      height="150"
+                      image={blog.eyecatch.url}
+                      alt="blog eyecatch"
+                    />
+                    <CardContent>
+                      <Typography gutterBottom variant="h5" component="div">
+                        {blog.title}
+                      </Typography>
+                    </CardContent>
+                  </CardActionArea>
+                </Card>
+              </Link>
+            </Grid>
+          );
         })}
-        </Grid>
+      </Grid>
     </>
   );
 }
