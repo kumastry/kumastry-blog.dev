@@ -1,6 +1,10 @@
 import type { GetStaticProps, GetStaticPaths } from "next";
 import { client } from "@/libs/client";
 import type { Blog } from "@/libs/types";
+import { Eyecatch } from '../../libs/types';
+
+import styles from "./blogs.module.css";
+import Image from "next/image";
 
 // Generates `/posts/1` and `/posts/2`
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -33,6 +37,7 @@ export default function Blog({ data }: any) {
 
   return (
     <main>
+      <Image className = {styles.image}src={data.eyecatch.url} alt={data.title}  fill />
       <h1 className="title">{data.title}</h1>
       <p>{data.publishedAt}</p>
       <div
