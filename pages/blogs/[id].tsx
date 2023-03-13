@@ -38,6 +38,7 @@ export default function Blog({ data }: any) {
   //console.log(data);
   const toc = renderToc(data.content);
   console.log(toc); // 検証用にconsole.logでデバッグ
+  console.log(data.content);
   return (
     <main>
       <Image className = {styles.image} src={data.eyecatch.url} alt={data.title}  fill />
@@ -47,6 +48,21 @@ export default function Blog({ data }: any) {
       <p>{data.category.name}</p>
 
       <br/><br/>
+
+      <ul style={{listStyle: "none"}}>
+        {
+          toc.map((item, index) => {
+            if(item.tag === "h1") {
+              return (<li key={index}><a href = {`#${item.id}`}>{item.text}</a></li>);
+            } else if(item.tag === "h2") {
+              return (<li key={index} style={{ textIndent: "1rem"}}><a href = {`#${item.id}`}>{item.text}</a></li>);
+            }
+            
+          }
+          )
+        }
+      </ul>
+      <br/>
 
       <div
         dangerouslySetInnerHTML={{
