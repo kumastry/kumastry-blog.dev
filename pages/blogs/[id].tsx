@@ -3,6 +3,9 @@ import { client } from "@/libs/client";
 import type { Blog } from "@/libs/types";
 import { renderToc } from '@/libs/render-toc';
 import { Eyecatch, Category } from '../../libs/types';
+import cheerio from 'cheerio';
+import hljs from 'highlight.js'
+import 'highlight.js/styles/hybrid.css';
 
 import styles from "./blogs.module.css";
 import Image from "next/image";
@@ -27,18 +30,28 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async (context) => {
   const contentId: any = context.params?.id;
   const data = await client.get({ endpoint: "blogs", contentId });
+
+  const $ = cheerio.load(data.content);
+  $('pre code').each((_, elm) => {
+    const result = hljs.highlightAuto($(elm).text());
+    $(elm).html(result.value);
+    $(elm).addClass('hljs');
+  });
+
+  const body = $('body').html();
   //const blogs : Array<Blog> = data.contents;
   return {
     // Passed to the page component as props
-    props: { data },
+    props: { data, body },
   };
 };
 
-export default function Blog({ data }: any) {
+export default function Blog({ data, body }: any) {
   //console.log(data);
   const toc = renderToc(data.content);
-  console.log(toc); // 検証用にconsole.logでデバッグ
-  console.log(data.content);
+  //console.log(toc); // 検証用にconsole.logでデバッグ
+  //console.log(data.content);
+  console.log(body);
   return (
     <main>
       <Image className = {styles.image} src={data.eyecatch.url} alt={data.title}  fill />
@@ -53,9 +66,9 @@ export default function Blog({ data }: any) {
         {
           toc.map((item, index) => {
             if(item.tag === "h1") {
-              return (<li key={index}><a href = {`#${item.id}`}>{item.text}</a></li>);
+              return (<li key={index}><a href = {`#${item.id}`}>ー{item.text}</a></li>);
             } else if(item.tag === "h2") {
-              return (<li key={index} style={{ textIndent: "1rem"}}><a href = {`#${item.id}`}>{item.text}</a></li>);
+              return (<li key={index} style={{ textIndent: "1rem"}}>ー<a href = {`#${item.id}`}>{item.text}</a></li>);
             }
             
           }
@@ -66,7 +79,7 @@ export default function Blog({ data }: any) {
 
       <div
         dangerouslySetInnerHTML={{
-          __html: `${data.content}`,
+          __html: `${body}`,
         }}
       />
     </main>
