@@ -32,7 +32,8 @@ export type Blog = {
   id: string;
   publishedAt: string;
   revisedAt: string;
-  title: string | null;
+  title: string ;
   updatedAt: string | null;
-  eyecatch: Eyecatch | null;
+  eyecatch: Eyecatch;
+  toc_visible:boolean;
 };

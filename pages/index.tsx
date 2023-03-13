@@ -6,6 +6,7 @@ import { ScriptProps } from "next/script";
 import type { Blog } from "@/libs/types";
 import Image from "next/image";
 import Head from "next/head";
+import { useState } from "react";
 
 //import mui
 import Card from "@mui/material/Card";
@@ -28,6 +29,8 @@ export default function Home({ blog }: Props) {
   //console.log(blog);
   //const isPhone : boolean = useMediaQuery("(max-width:600px)");
 
+  const [blogs, setBlogs] = useState<Array<Blog>>(blog);
+
   return (
     <>
       <Head>
@@ -46,7 +49,7 @@ export default function Home({ blog }: Props) {
       </Head>
 
       <Grid container rowSpacing={2} columnSpacing={1}>
-        {blog.map((blog: any) => {
+        {blogs.map((blog: Blog) => {
           console.log(blog);
           return (
             <Grid
@@ -75,7 +78,7 @@ export default function Home({ blog }: Props) {
                       <Box sx = {{display:"flex"}}>
                       <LocalOfferIcon/>
                       
-                      <p>{blog.category.name}</p>
+                      <p>{blog.category?.name}</p>
                       </Box>
 
                       <p>{blog.publishedAt}</p>
