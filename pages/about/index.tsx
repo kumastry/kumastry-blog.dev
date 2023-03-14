@@ -1,8 +1,10 @@
 import type { GetStaticProps } from "next";
 import type { About } from "@/libs/types";
 import { client } from "@/libs/client";
+import { Portfolio } from '../../libs/types';
 
 export default function About({ about }: { about: About }) {
+  console.log(about);
   return (
     <>
       <h1>{about.name}</h1>
@@ -14,6 +16,14 @@ export default function About({ about }: { about: About }) {
           __html: `${about.profile}`,
         }}
       />
+
+      {about.portfolios.map(portfolio => {
+
+        return (
+          <p>{portfolio?.title}</p>
+        );
+      })
+      }
     </>
   );
 }

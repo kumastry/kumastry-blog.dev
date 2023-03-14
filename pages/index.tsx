@@ -22,14 +22,14 @@ import Box from "@mui/material/Box";
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 
 type Props = {
-  blog: Array<Blog>;
+  blogs: Array<Blog>;
 };
 
-export default function Home({ blog }: Props) {
+export default function Home({ blogs }: Props) {
   //console.log(blog);
   //const isPhone : boolean = useMediaQuery("(max-width:600px)");
 
-  const [blogs, setBlogs] = useState<Array<Blog>>(blog);
+  //const [blogs, setBlogs] = useState<Array<Blog>>(blog);
 
   return (
     <>
@@ -98,11 +98,11 @@ export default function Home({ blog }: Props) {
 // データをテンプレートに受け渡す部分の処理を記述します
 export const getStaticProps: GetStaticProps = async () => {
   const data = await client.get({ endpoint: "blogs" });
-  const blog: Array<Blog> = data.contents;
-
+  const blogs: Array<Blog> = data.contents;
+  //const categories: Array<Category> = data.categories;
   return {
     props: {
-      blog,
+      blogs,
     },
   };
 };
