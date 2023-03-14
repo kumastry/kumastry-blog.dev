@@ -52,8 +52,8 @@ const Header = (): JSX.Element => {
               </Grid>
 
               <Grid item sm={4}>
-                <Link href="/policy">
-                  <Botton sx={{ my: 2 }}>policy</Botton>
+                <Link href="/portfolio">
+                  <Botton sx={{ my: 2 }}>Portfolio</Botton>
                 </Link>
               </Grid>
             </Grid>
@@ -88,8 +88,8 @@ const Header = (): JSX.Element => {
               <MenuItem onClick={handleClose}>About</MenuItem>
             </Link>
 
-            <Link href="/policy">
-              <MenuItem onClick={handleClose}>Policy</MenuItem>
+            <Link href="/portfolio">
+              <MenuItem onClick={handleClose}>Portfolio</MenuItem>
             </Link>
           </Menu>
         </Toolbar>
